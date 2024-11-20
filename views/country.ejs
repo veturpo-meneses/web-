@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Details</title>
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar Partial -->
+    <%- include('partials/navbar', { page: 'Country' }) %>
+
+    <div class="container mx-auto my-8">
+        <h1 class="text-4xl font-bold text-center mb-4"><%= country.commonName %> Details</h1>
+        <div class="flex justify-center mb-8">
+            <img src="<%= country.flag %>" alt="Flag of <%= country.commonName %>" class="h-32 w-48 rounded-lg shadow-md">
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">General Information</h2>
+            <p><strong>Official Name:</strong> <%= country.officialName %></p>
+            <p><strong>Native Name:</strong> <%= country.nativeName %></p>
+            <p><strong>Capital:</strong> <%= country.capital %></p>
+            <p><strong>Population:</strong> <%= country.population.toLocaleString() %></p>
+            <p><strong>Area:</strong> <%= country.area ?

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar País - <%= country.commonName %></title>
+  <link rel="stylesheet" href="/css/output.css">
+</head>
+<body>
+  <!-- Incluir la barra de navegación -->
+  <%- include('partials/navbar', { page: '' }) %>
+
+  <div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-bold mb-4">Editar País: <%= country.commonName %></h1>
+    <form action="/editCountry" method="POST" class="space-y-4">
+      <!-- ID del país (Solo lectura) -->
+      <div>
+        <label for="id" class="block text-sm font-medium text-gray-700">ID del País</label>
+        <input type="text" name="id" id="id" value="<%= country.id %>" readonly class="mt-1 block w-full border-gray-300 rounded-md cursor-not-allowed">
+      </div>
+
+      <!-- Nombre común -->
+      <div>
+        <label for="commonName" class="block text-sm font-medium text-gray-700">Nombre Común</label>
+        <input type="text" name="commonName" id="commonName" value="<%= country.commonName %>" required class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Nombre oficial -->
+      <div>
+        <label for="officialName" class="block text-sm font-medium text-gray-700">Nombre Oficial</label>
+        <input type="text" name="officialName" id="officialName" value="<%= country.officialName %>" required class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Nombre nativo -->
+      <div>
+        <label for="nativeName" class="block text-sm font-medium text-gray-700">Nombre Nativo</label>
+        <input type="text" name="nativeName" id="nativeName" value="<%= country.nativeName %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Monedas -->
+      <div>
+        <label for="currencies" class="block text-sm font-medium text-gray-700">Monedas</label>
+        <input type="text" name="currencies" id="currencies" value="<%= country.currencies %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Capital -->
+      <div>
+        <label for="capital" class="block text-sm font-medium text-gray-700">Capital</label>
+        <input type="text" name="capital" id="capital" value="<%= country.capital %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Idiomas -->
+      <div>
+        <label for="languages" class="block text-sm font-medium text-gray-700">Idiomas</label>
+        <input type="text" name="languages" id="languages" value="<%= country.languages %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- URL de OpenStreetMaps -->
+      <div>
+        <label for="openStreetMaps" class="block text-sm font-medium text-gray-700">URL de OpenStreetMaps</label>
+        <input type="url" name="openStreetMaps" id="openStreetMaps" value="<%= country.openStreetMaps %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Población -->
+      <div>
+        <label for="population" class="block text-sm font-medium text-gray-700">Población</label>
+        <input type="number" name="population" id="population" value="<%= country.population %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Área -->
+      <div>
+        <label for="area" class="block text-sm font-medium text-gray-700">Área (km²)</label>
+        <input type="number" name="area" id="area" value="<%= country.area %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- ¿Es un país sin litoral? -->
+      <div class="flex items-center">
+        <input type="checkbox" name="landlocked" id="landlocked" <%= country.landlocked ? 'checked' : '' %> class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        <label for="landlocked" class="ml-2 block text-sm text-gray-900">Es un país sin litoral</label>
+      </div>
+
+      <!-- URL del escudo de armas -->
+      <div>
+        <label for="coatOfArms" class="block text-sm font-medium text-gray-700">URL del Escudo de Armas</label>
+        <input type="url" name="coatOfArms" id="coatOfArms" value="<%= country.coatOfArms %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- URL de la bandera -->
+      <div>
+        <label for="flag" class="block text-sm font-medium text-gray-700">URL de la Bandera</label>
+        <input type="url" name="flag" id="flag" value="<%= country.flag %>" class="mt-1 block w-full border-gray-300 rounded-md">
+      </div>
+
+      <!-- Subregión -->
+      <div>
+        <label for="subRegionId" class="block text-sm font-medium text-gray-700">Subregión</label>
+        <select name="subRegionId" id="subRegionId" required class="mt-1 block w-full border-gray-300 rounded-md">
+          <% subRegions.forEach(subRegion => { %>
+            <option value="<%= subRegion.id %>" <%= country.subRegionId == subRegion.id ? 'selected' : '' %>><%= subRegion.subRegion %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex justify-between items-center">
+        <!-- Botón para actualizar el país -->
+        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Actualizar País
+        </button>
+        <!-- Enlace para eliminar el país -->
+        <a href="/deleteCountry/<%= country.id %>" class="inline-flex justify-center py-2 px-4 border border-transparent
+::contentReference[oaicite:0]{index=0}
+ 

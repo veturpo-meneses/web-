@@ -1,0 +1,27 @@
+<nav class="bg-blue-800 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo / Home Link -->
+      <a href="/" class="text-white text-2xl font-bold">
+        🌍 Countries Info
+      </a>
+      <!-- Navbar Links -->
+      <div class="flex space-x-6">
+        <a href="/" class="<%= page === 'Home' ? 'text-yellow-400' : 'text-gray-300' %> hover:text-yellow-400">
+          Home
+        </a>
+        <a href="/about" class="<%= page === 'About' ? 'text-yellow-400' : 'text-gray-300' %> hover:text-yellow-400">
+          About
+        </a>
+        <a href="/views/countries.ejs" class="<%= page === 'Countries' ? 'text-yellow-400' : 'text-gray-300' %> hover:text-yellow-400">
+          View Collection
+        </a>
+        <a href="/views/country.ejs" class="<%= page === 'LatinAmerica' ? 'text-yellow-400' : 'text-gray-300' %> hover:text-yellow-400">
+          Latin America
+        </a>
+        <a href="/views/editCountry.ejs" class="<%= page === 'Peru' ? 'text-yellow-400' : 'text-gray-300' %> hover:text-yellow-400">
+          Peru
+        </a>
+      </div>
+    </div>
+  </nav>
+  
